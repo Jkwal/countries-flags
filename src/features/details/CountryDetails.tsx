@@ -1,7 +1,13 @@
 import {Info} from "./Info";
 import {useDetails} from "./use-details";
+import {NavigateFunction} from "react-router-dom";
 
-export const CountryDetails = ({name = '', navigate}) => {
+interface CountryDetailsProps {
+    navigate: NavigateFunction,
+    name?: string,
+}
+
+export const CountryDetails = ({name = '', navigate}: CountryDetailsProps) => {
     const {status, error, currentCountry} = useDetails(name);
     return (
         <>
