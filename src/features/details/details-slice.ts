@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import { Country, Extra, Status } from '../../types';
+import { Country, Extra, Status } from 'types';
 
 export const loadCountryByName = createAsyncThunk<
     { data: Country[] },
