@@ -1,14 +1,16 @@
-import {Info} from "./Info";
-import {useDetails} from "./use-details";
-import {NavigateFunction} from "react-router-dom";
+import { NavigateFunction } from 'react-router-dom';
+import { useDetails } from './use-details';
+import {Info} from './Info';
+
 
 interface CountryDetailsProps {
     navigate: NavigateFunction,
     name?: string,
 }
 
-export const CountryDetails = ({name = '', navigate}: CountryDetailsProps) => {
+const CountryDetails = ({ name = '', navigate }: CountryDetailsProps) => {
     const {status, error, currentCountry} = useDetails(name);
+
     return (
         <>
             {status === 'loading' && <h2>Loading...</h2>}
@@ -17,3 +19,5 @@ export const CountryDetails = ({name = '', navigate}: CountryDetailsProps) => {
         </>
     )
 }
+
+export {CountryDetails};

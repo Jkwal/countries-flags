@@ -1,5 +1,5 @@
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import {Country, Extra, Status} from "../../types";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import { Country, Extra, Status } from '../../types';
 
 export const loadCountryByName = createAsyncThunk<
     { data: Country[] },
@@ -23,7 +23,7 @@ export const loadNeighborsByBorder = createAsyncThunk<
 );
 
 type DetailsSlice = {
-    currentCountry: Country | null;
+    currentCountry: Country | null,
     neighbors: string[],
     status: Status,
     error: string | null,
@@ -48,7 +48,7 @@ const detailsSlice = createSlice({
                 state.status = 'loading';
                 state.error = null;
             })
-            .addCase(loadCountryByName.rejected, (state, action) => {
+            .addCase(loadCountryByName.rejected, (state) => {
                 state.status = 'rejected';
                 state.error = 'Can not load data';
             })
@@ -64,4 +64,3 @@ const detailsSlice = createSlice({
 
 export const {clearDetails} = detailsSlice.actions;
 export const detailsReducer = detailsSlice.reducer;
-

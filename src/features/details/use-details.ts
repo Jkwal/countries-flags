@@ -1,8 +1,9 @@
-import {useSelector} from "react-redux";
-import {clearDetails, loadCountryByName} from "./details-slice";
-import {useEffect} from "react";
-import {selectDetails} from "./details-selectors";
-import {useAppDispatch} from "../../store";
+import {useSelector} from 'react-redux';
+import {useEffect} from 'react';
+
+import { clearDetails, loadCountryByName } from './details-slice';
+import { selectDetails } from './details-selectors';
+import { useAppDispatch } from '../../store';
 
 export const useDetails = (name: string) => {
     const dispatch = useAppDispatch();
@@ -10,6 +11,7 @@ export const useDetails = (name: string) => {
 
     useEffect(() => {
         dispatch(loadCountryByName(name));
+
         return () => {
             dispatch(clearDetails());
         }
