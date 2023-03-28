@@ -18,6 +18,7 @@ import {themeReducer} from "./features/theme/theme-slice";
 import {controlsReducer} from "./features/controls/controls-slice";
 import {countryReducer} from "./features/countries/countries-slice";
 import {detailsReducer} from "./features/details/details-slice";
+import {useDispatch} from "react-redux";
 
 const rootReducer = combineReducers({
     theme: themeReducer,
@@ -48,4 +49,7 @@ export const store = configureStore({
     })
 })
 
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch: () => AppDispatch = useDispatch;
 export const persistor = persistStore(store);
