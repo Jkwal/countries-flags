@@ -1,13 +1,14 @@
-import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 
 export const loadCountries = createAsyncThunk(
     '@@countries/load-countries',
-    async (_, {
-        extra: {client, api}
+    (_, {
+        extra: {client, api},
     }) => {
         return client.get(api.ALL_COUNTRIES)
     }
 );
+
 const initialState = {
     status: 'idle',
     error: null,
@@ -15,7 +16,7 @@ const initialState = {
 }
 
 const countrySlice = createSlice({
-    name: '@@counties',
+    name: '@@countries',
     initialState,
     reducers: {},
     extraReducers: (builder) => {
@@ -37,7 +38,7 @@ const countrySlice = createSlice({
 
 export const countryReducer = countrySlice.reducer;
 
-//selectors
+// selectors
 export const selectCountriesInfo = (state) => ({
     status: state.countries.status,
     error: state.countries.error,
