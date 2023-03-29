@@ -13,7 +13,7 @@ import {persistor, store} from "./store";
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
-            <BrowserRouter>
+            <BrowserRouter basename='/countries-flags'>
                 <PersistGate loading={null} persistor={persistor}>
                     <App/>
                 </PersistGate>
